@@ -1,0 +1,12 @@
+{
+  "name": "discord-btcp-tipbot",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node bot.js",
+  },
+  "dependencies": {
+    "discordie": "*",
+    "node-altcoin": "*"
+  }
+}
