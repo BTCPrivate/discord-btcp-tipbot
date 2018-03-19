@@ -1,3 +1,7 @@
 {
-    "connect_token" : "Discord-bot-app-auth-token-here"
+    "connect_token" : "Discord-bot-app-auth-token-here",
+    "daemon_ip" : "127.0.0.1",
+    "daemon_port" : "7932",
+    "daemon_rpcuser" : "daemonrpcusername",
+    "daemon_rpcpassword" : "daemonrpcpassword"
 }

@@ -6,10 +6,10 @@ var fs = require('fs'),
   coin = require('node-altcoin');
 
 var coin = coin({
-  host: "127.0.0.1",
-  port: "8232",
-  user: "bitcoin",
-  pass: "local321"
+  host: config.daemon_ip,
+  port: config.daemon_port,
+  user: config.daemon_rpcuser,
+  pass: config.daemon_rpcpassword
 });
 
 var client = new Discordie();
