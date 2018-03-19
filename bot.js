@@ -55,7 +55,7 @@ client.Dispatcher.on(Events.MESSAGE_CREATE, e => {
       console.log(version + ' ' + blocks + ' ' + conn);
       if (err){
         throw (err);
-        console.log(err);
+        
       }
       //var getinfocontents = JSON.parse(info);
       //e.message.channel.sendMessage(getinfocontents.version);
