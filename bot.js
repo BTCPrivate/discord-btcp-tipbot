@@ -17,8 +17,10 @@ client.connect({
   token: config.connect_token
 }); //discord bot auth token
 
+console.log("Connected to daemon as: " + config.daemon_rpcuser);
+
 client.Dispatcher.on(Events.GATEWAY_READY, e => {
-  console.log("Connected as: " + client.User.username);
+  console.log("Connected to discord as: " + client.User.username);
 });
 
 client.Dispatcher.on(Events.MESSAGE_CREATE, e => {
