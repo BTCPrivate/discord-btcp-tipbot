@@ -56,7 +56,7 @@ client.Dispatcher.on(Events.MESSAGE_CREATE, e => {
       e.message.channel.sendMessage(address);
     });
   if (e.message.content == "hashrate")
-    coin.gethashespersec(function(err, hash) {
+    coin.getnetworkhashps(function(err, hash) {
       e.message.channel.sendMessage(hash);
     });
 
