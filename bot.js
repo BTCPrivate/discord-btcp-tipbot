@@ -48,6 +48,7 @@ client.Dispatcher.on(Events.MESSAGE_CREATE, e => {
 
   if (e.message.content == "info")
     coin.getinfo(function(err, info) {
+      console.log(info);
       var getinfocontents = JSON.parse(info);
       e.message.channel.sendMessage(getinfocontents);
     });
