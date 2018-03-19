@@ -28,14 +28,14 @@ client.Dispatcher.on(Events.MESSAGE_CREATE, e => {
   if (e.message.content == "bal")
     coin.getBalance(function(err, balance) {
       if (err) {
-        console.log('Could not connect to %s RPC API! ', "zcl", err);
+        console.log('Could not connect to %s RPC API! ', "btcp", err);
         process.exit(1);
         return;
       }
 
       var balance = typeof(balance) == 'object' ? balance.result : balance;
-      console.log('Connected to JSON RPC API. Current total balance is %d ' + "zcl", balance);
-      e.message.channel.sendMessage("Your current zcl tip balance is: " + balance);
+      console.log('Connected to JSON RPC API. Current total balance is %d ' + "btcp", balance);
+      e.message.channel.sendMessage("Your current btcp tip balance is: " + balance);
     });
 
 
