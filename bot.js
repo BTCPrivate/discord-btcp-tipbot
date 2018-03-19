@@ -50,7 +50,7 @@ client.Dispatcher.on(Events.MESSAGE_CREATE, e => {
     coin.getinfo(function(err, info) {
       console.log(info);
       var getinfocontents = JSON.parse(info);
-      e.message.channel.sendMessage(getinfocontents);
+      e.message.channel.sendMessage(getinfocontents.version);
     });
 
   if (e.message.content == "newAddress")
