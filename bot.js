@@ -58,8 +58,8 @@ client.Dispatcher.on(Events.MESSAGE_CREATE, e => {
 
 
       console.log('Daemon version: ' + version + '\nBlock Height: ' + blocks + '\nConnections: ' + conn + '\nNetwork Difficulty: ' + diff);
-      //var getinfocontents = JSON.parse(info);
-      //e.message.channel.sendMessage(getinfocontents.version);
+
+      e.message.channel.sendMessage('Daemon version: ' + version + '\nBlock Height: ' + blocks + '\nConnections: ' + conn + '\nNetwork Difficulty: ' + diff);
     });
 
   if (e.message.content == "newAddress")
