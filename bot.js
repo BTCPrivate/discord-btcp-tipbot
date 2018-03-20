@@ -4,6 +4,8 @@ var config = require('./config.json');
 //log_in(config.username, config.password);
 var fs = require('fs'),
   coin = require('node-altcoin');
+var user_prefix = config.user_cmd_prefix;
+var bot_user = config.bot_user;
 
 var coin = coin({
   host: config.daemon_ip,
@@ -12,11 +14,13 @@ var coin = coin({
   pass: config.daemon_rpcpassword
 });
 
+//todo add address balance lookup via:
+//https://explorer.btcprivate.org/api/addr/b16CX1xECayDxrbnBCcycNRe6VG2xPqna19/balance
+
 var client = new Discordie();
 client.connect({
   token: config.connect_token
 }); //discord bot auth token
-
 console.log("Connected to daemon as: " + config.daemon_rpcuser);
 
 client.Dispatcher.on(Events.GATEWAY_READY, e => {
@@ -24,10 +28,19 @@ client.Dispatcher.on(Events.GATEWAY_READY, e => {
 });
 
 client.Dispatcher.on(Events.MESSAGE_CREATE, e => {
-  if (e.message.content == "ping")
-    e.message.channel.sendMessage("pong");
+  bot = e.message.channel;
+  msg = e.message.content.toLowerCase();
+  channel = e.message.channel;
+  mention = e.message.author.nickMention;
+  full_user = e.message.author.username + "#" + e.message.author.discriminator;
+  var channelId = (e.message.channel_id);
+  var msgId = (e.message.id);
+  var msgTxt = (e.message.content);
+  var guildId = (e.message.channel.guild_id);
 
-  if (e.message.content == "bal")
+
+
+  if (msg.startsWith(user_prefix) && msg == "bal"){
     coin.getBalance(function(err, balance) {
       if (err) {
         console.log('Could not connect to %s RPC API! ', "btcp", err);
@@ -39,6 +52,9 @@ client.Dispatcher.on(Events.MESSAGE_CREATE, e => {
       console.log('Connected to JSON RPC API. Current total balance is %d ' + "btcp", balance);
       e.message.channel.sendMessage("Your current btcp tip balance is: " + balance);
     });
+
+  }
+
 
 
   if (e.message.content == "diff")
