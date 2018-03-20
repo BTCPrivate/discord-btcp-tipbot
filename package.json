@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "discordie": "*",
-    "node-altcoin": "*"
+    "node-altcoin": "*",
+    "request": "^2.85.0"
   }
 }
