@@ -48,12 +48,16 @@ client.Dispatcher.on(Events.MESSAGE_CREATE, e => {
 
   if (e.message.content == "getinfo")
     coin.getinfo(function(err, info) {
-      const strData = JSON.parse(info);
-      var version = info[0].version;
-      var blocks = info[0].blocks;
-      var conn = info[0].connections;
+      const strData = JSON.stringify(info);
+      var jsonData = JSON.parse(strData);
+      //console.log(strData);
+      var version = jsonData.version;
+      var blocks = jsonData.blocks;
+      var conn = jsonData.connections;
+      var diff = jsonData.difficulty;
 
-      console.log(version + ' ' + blocks + ' ' + conn);
+
+      console.log('Daemon version: ' + version + '\nBlock Height: ' + blocks + '\nConnections: ' + conn + '\nNetwork Difficulty: ' + diff);
       //var getinfocontents = JSON.parse(info);
       //e.message.channel.sendMessage(getinfocontents.version);
     });
