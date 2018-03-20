@@ -48,15 +48,12 @@ client.Dispatcher.on(Events.MESSAGE_CREATE, e => {
 
   if (e.message.content == "getinfo")
     coin.getinfo(function(err, info) {
+      const strData = JSON.parse(info);
       var version = info[0].version;
       var blocks = info[0].blocks;
       var conn = info[0].connections;
 
       console.log(version + ' ' + blocks + ' ' + conn);
-      if (err){
-        throw (err);
-        
-      }
       //var getinfocontents = JSON.parse(info);
       //e.message.channel.sendMessage(getinfocontents.version);
     });
