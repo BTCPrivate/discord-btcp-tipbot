@@ -66,7 +66,7 @@ client.Dispatcher.on(Events.MESSAGE_CREATE, e => {
 */
 
 //!bal command only works in DM's to BOT
-  if (guildId === null && full_user !== bot_user && (msg.startsWith(user_prefix) && msg.startsWith("!bal"))) {
+  if (full_user !== bot_user && (msg.startsWith(user_prefix) && msg.startsWith("!bal"))) {
     balReqChannel = e.message.channel_id;
     console.log('channelid: ' + balReqChannel);
     //todo add address balance lookup via:
